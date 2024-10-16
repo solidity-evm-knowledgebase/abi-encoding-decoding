@@ -16,13 +16,13 @@ To return a string, simply wrap this in a string()
 
 Example: 
 
-```
+```solidity
 string(abi.encodePacked(stringA, stringB));
 ```
 
 Alternative for strings: (^0.8.12)
 
-```
+```solidity
 string.concat(stringA, stringB);
 ```
 
@@ -32,13 +32,13 @@ ABI-decodes the given bytes into the specified format.
 
 Example:
 
-```
+```solidity
 abi.decode(BYTES_TO_DECODE, (string));
 ```
 
 Example multi decode:
 
-```
+```solidity
 (string memory firstString, string memory secondString) = abi.decode(BYTES_TO_DECODE, (string, string));
 ```
 
@@ -54,7 +54,7 @@ call functions that changes the state of the chain.
 
 Example:
 
-```
+```solidity
 (bool success, ) = address.call{value: ...}("")
 ```
 
@@ -81,7 +81,7 @@ The function signature is a string that defined the function name and parameters
 
 Example
 
-```
+```solidity
 transfer(address,uint256)
 ```
 
@@ -91,15 +91,13 @@ The function selector is the first 4 bytes of the function signature
 
 Example:
 
-```
-0xa9059cbb
-```
+`0xa9059cbb`
 
 #### To get the data needed for the call:
 
 Step1: To get the function selector we can use:
 
-```
+```solidity
 function getSelector() public pure returns(bytes4 selector){
   selector = bytes4(keccak256(bytes("transfer(address,uint256")));
 }
@@ -107,7 +105,7 @@ function getSelector() public pure returns(bytes4 selector){
 
 Step2: To Encode with the arguments:
 
-```
+```solidity
 function getDataToCallTransfer(address someAddress, uint256 someAmount) public pure returns(bytes memory) {
   return abi.encodeWithSelector(getSelector(), someAddress, someAmount);
 }
@@ -115,7 +113,7 @@ function getDataToCallTransfer(address someAddress, uint256 someAmount) public p
 
 Alternatively we can directly use abi.encodeWithSignature which combines step1 and step2:
 
-```
+```solidity
 function getDataToCallTransfer(address someAddress, uint256 someAmount) public pure returns(bytes memory) {
     return abi.encodeWithSignature("transfer(address,uint256)", someAddress, someAmount);
 }
