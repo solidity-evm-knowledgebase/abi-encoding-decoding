@@ -59,7 +59,7 @@ Example:
 ```
 
 in the brackets {} we can pass value, gasLimit, gasPrice.
-in the parathenses () we can send the data, in order to call a specific function. 
+in the parentheses () we can send the data, in order to call a specific function. 
 
 
 ### staticcall
