@@ -72,12 +72,11 @@ How at a low level we do our "pure" or "view" function calls. Read data but does
 
 In order to call a function using only the data field of call, we need to encode:
 1) The function name
-2) The paramaters we want to add
-Down to the binary level
+2) The func paramaters
 
 ### Function signature
 
-The function signature is a string that defined the function name and parameters
+The function signature is a string that defines the function name and parameters
 
 Example
 
